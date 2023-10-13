@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Beth Harrington Design</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            #nav {
+                text-align: right;
+                margin: 0 0 0 auto;
+            }
+
+            #nav_portfolio {
+                margin: 0 20px 0 0;
+            }
+
+            #nav_clientportal {
+                margin: 0;
+            }
+
+            #content {
+                margin: 15% auto 0 auto;
+                text-align: center;
+            }
+
+            #bhd {
+                display: block;
+                margin: 0 auto 50px auto;
+            }
+
+            #hello {
+                display: block;
+                margin: 10% auto 0 auto;
+            }
+
+            #portfolio {
+                display: none;
+            }
+        
+            #clientportal {
+                display: none;
+            }
+
+            #portfolio_message, #clientportal_message {
+                color: #c00;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="nav">   
+            <a href="#"><img id="nav_portfolio" alt="Portfolio" src="portfolio.png" srcset="portfolio@2x.png 2x" width="78" height="14" /></a><a href="#"><img id="nav_clientportal" alt="Client Portal" src="clientportal.png" srcset="clientportal@2x.png 2x" width="116" height="14" /></a>
+        </div>
+        <div id="content">
+            <div id="splash">
+                <img id="bhd" alt="Bh.D" src="bhd.png" srcset="bhd@2x.png 2x" />
+                <a href="mailto:hello@bethhd.com"><img id="hello" alt="hello@BethHD.com" src="hello.png" srcset="hello@2x.png 2x" width="128" height="14" /></a>
+            </div>
+            <div id="portfolio">
+                <form id="portfolio_form">
+                    <input id="portfolio_password" type="text" placeholder="Password" /><br />
+                    <input type="submit" value="View Portfolio">
+                </form>
+                <div id="portfolio_message">Invalid password</div>
+            </div>
+    
+            <div id="clientportal">
+                <form id="clientportal_form">
+                    <input id="clientportal_projectname" type="text" placeholder="Project Name" /><br />
+                    <input id="clientportal_password" type="password" placeholder="Password" /><br />
+                    <input type="submit" value="View Client Portal">
+                </form>
+                <div id="clientportal_message">Invalid project name or password</div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("nav_portfolio").addEventListener("click", showPortfolio);
+            document.getElementById("nav_clientportal").addEventListener("click", showClientPortal);
+
+            function showPortfolio(e) {
+                e.preventDefault();
+                document.getElementById("splash").style.display = "none";
+                document.getElementById("portfolio").style.display = "block";
+                document.getElementById("clientportal").style.display = "none";
+                document.getElementById("portfolio_password").focus();
+            }
+
+            function showClientPortal(e) {
+                e.preventDefault();
+                document.getElementById("splash").style.display = "none";
+                document.getElementById("portfolio").style.display = "none";
+                document.getElementById("clientportal").style.display = "block";
+                document.getElementById("clientportal_projectname").focus();
+            }
+
+            document.getElementById("portfolio_form").addEventListener("submit", submitPortfolioForm);
+            document.getElementById("clientportal_form").addEventListener("submit", submitClientPortalForm);
+
+            function submitPortfolioForm(e) {
+                e.preventDefault();
+                setTimeout(function() {
+                    document.getElementById("portfolio_message").style.display = "block";
+                    document.getElementById("portfolio_password").value = "";
+                    document.getElementById("portfolio_password").focus();
+                }, 150);
+            }
+
+            function submitClientPortalForm(e) {
+                e.preventDefault();
+                setTimeout(function() {
+                    document.getElementById("clientportal_message").style.display = "block";
+                    document.getElementById("clientportal_projectname").value = "";
+                    document.getElementById("clientportal_password").value = "";
+                    document.getElementById("clientportal_projectname").focus();
+                }, 150);
+            }
+
+            document
+        </script>
+    </body>
+</html>
